@@ -1,0 +1,403 @@
+
+/*General stylign for body header and footer for all pages */
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: #004080;
+    padding: 20px;
+    margin: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+header h1 {
+    color: white;
+    width: fit-content;
+}
+
+.navbar {
+    background-color: #003366;
+    color: white;
+    display: flex;
+}
+
+.navbar a {
+    width: 100%;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    border-bottom: white 6px solid;
+}
+
+
+/*Styling specific for the homepage */
+.homepage {
+    background-color: #d4d4d4;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.homepage h2 {
+    color: #004080;
+}
+
+.homepage  ul {
+    width: fit-content;
+    list-style-type: '-';
+}
+
+.homepage li {
+    margin: 20px;
+}
+
+.listTitle {
+    font-weight: bold;
+}
+
+/*Styling specific for the login page */
+
+.login {
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login h2 {
+    color: #004080;
+}
+
+.login form {
+    width: 66%;
+    background-color: #d4d4d4;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    margin-right: 150px;
+    margin-left: 150px;
+}
+
+.login input {
+    width: 20%;
+    background-color: lightyellow;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 3px solid darkgray;
+}
+
+.login button {
+    width: fit-content;
+    background-color: #008000;
+    color: white;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.login button:hover {
+    background-color: #006600;
+}
+
+.login a {
+    text-decoration: none;
+    color: #004080;
+}
+
+.login div:hover {
+    text-decoration: underline;
+}
+
+/*Styling specific for the quiz pages */
+.quizPage {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quizPage img {
+    border-radius: 10px;
+}
+
+.quizInfo{
+    margin: 2px;
+    padding: 20px;
+    padding-left: 250px;
+    padding-right: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+}
+
+.quizInfo h2 {
+    color: #004080;
+}
+
+
+.quizForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.quizQuestion {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quizQuestion form {
+    width: 40%;
+    background-color: lightgray;
+    padding: 20px;
+    gap: 10px;
+}
+
+.quizQuestion button{
+    width: fit-content;
+    background-color: lightblue;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.quizQuestion button:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+.submitButton {
+    width: fit-content;
+    background-color: #D32F2F;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.submitButton a{
+    text-decoration: none;
+    color: white;
+    font-size: small;
+}
+
+.quizForm .submitButton:hover {
+    background-color: #821b1b;
+}
+
+
+
+footer{
+    background-color: #004080;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+
+/* Leaderboard */
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-size: 1.1em;
+}
+
+.leaderboard-table th {
+    background-color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.leaderboard-title {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.leaderboard-title h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0;
+    padding: 2px 0;
+    line-height: 1;
+}
+
+.gold {
+    background-color: #FFD700;
+}
+
+.silver {
+    background-color: #C0C0C0;
+}
+
+.bronze {
+    background-color: #CD7F32;
+}
+
+.alt-row-1 {
+    background-color: #f9f9f9;
+}
+
+.alt-row-2 {
+    background-color: #e4e2e2;
+}
+
+.leaderboard-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.leaderboard-table td p {
+    font-size: x-large;
+    margin: 0;
+}
+
+.leaderboard-table th h2 {
+    font-size: x-large;
+    margin: 0;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid black;
+}
+
+
+/* Course View */
+.course-view {
+    padding: 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.course-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.course-header h2, .course-header label, .course-header select {
+    display: inline-block;
+    margin: 5px;
+}
+
+.term-select {
+    background-color: lightyellow;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.course-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.course-tile {
+    flex: 1 1 32%;
+    max-width: 32%;
+    background-color: #e6f2ff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.course-tile img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.course-tile a {
+    text-decoration: none;
+    color: #004080;
+}
+
+.course-tile a:hover {
+    text-decoration: underline;
+}
+
+.pending-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.pending-tile {
+    width: 48%;
+    background-color: #e6f2ff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.accept-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.accept-btn:hover {
+    background-color: #265e28;
+}
+
+.decline-btn {
+    background-color: #D32F2F;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.decline-btn:hover {
+    background-color: #821b1b;
+}
+
+.section-title {
+    color: #004080; 
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+}
