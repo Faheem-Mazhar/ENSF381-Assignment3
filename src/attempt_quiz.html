@@ -37,6 +37,8 @@
                         <p>
                             Attempts Allowed: 1
                         </p>
+                        <div id="timer" style="font-size: 24px; font-weight: bold; color: #D32F2F;">Time Remaining: 10:00</div>
+                        <div id="scoreDisplay" style="font-size: 20px; font-weight: bold; display: none;">Your Score: <span id="score">0</span>/100</div>
                     </div>
                     <div class="quizForm">
                         <div class="quizQuestion">
@@ -46,13 +48,13 @@
                             <p>
                                 What does HTML stand for?
                             </p>
-                            <form>
+                            <form id="question1Form">
                                 <input type="radio" id="q1a1" name="q1" value="q1a1">
                                 <label for="q1a1">Hyper Text Markup Language</label><br>
                                 <input type="radio" id="q1a2" name="q1" value="q1a2">
                                 <label for="q1a2">Home Tool Markup Language</label><br>
                             </form>
-                            <button type="submit">Submit Anwser</button>
+                            <button type="button" onclick="validateQuestion1()">Submit Answer</button>
                         </div>
                         <div class="quizQuestion">
                             <h3>
@@ -61,16 +63,16 @@
                             <p>
                                 Which of the following are HTML elements? (Select all that apply)
                             </p>
-                            <form>
+                            <form id="question2Form">
                                 <input type="checkbox" id="q2a1" name="q2" value="q2a1">
                                 <label for="q2a1">&lt;div&gt;</label><br>
                                 <input type="checkbox" id="q2a2" name="q2" value="q2a2">
-                                <label for="q2a1">&lt;span&gt;</label><br>
+                                <label for="q2a2">&lt;span&gt;</label><br>
                             </form>
-                            <button type="submit">Submit Anwser</button>
+                            <button type="button" onclick="validateQuestion2()">Submit Answer</button>
                         </div>
                         <div class="submitButton">
-                            <a href="leaderboard.html">Finish Quiz</a>
+                            <a href="#" onclick="finishQuiz(); return false;">Finish Quiz</a>
                         </div>
                     </div>
                 </div>
@@ -83,3 +85,100 @@
         </div>
     </body>
 </html>
+<script>
+    let timeLeft = 10 * 60;
+    let timerInterval;
+    let totalScore = 0;
+    let question1Answered = false;
+    let question2Answered = false;
+
+    window.onload = function() {
+        startTimer();
+    };
+
+    function startTimer() {
+        timerInterval = setInterval(function() {
+            timeLeft--;
+            
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            document.getElementById('timer').textContent = `Time Remaining: ${formattedTime}`;
+            
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                alert("Time's up! Redirecting to leaderboard.");
+                window.location.href = "leaderboard.html";
+            }
+        }, 1000);
+    }
+
+    function validateQuestion1() {
+        const q1a1 = document.getElementById('q1a1');
+        const q1a2 = document.getElementById('q1a2');
+        
+        if (!q1a1.checked && !q1a2.checked) {
+            alert("Please select an answer for Question 1.");
+            return;
+        }
+        
+        if (q1a1.checked) {
+            totalScore += 50;
+        }
+        
+        document.getElementById('q1a1').disabled = true;
+        document.getElementById('q1a2').disabled = true;
+        document.querySelector('.quizQuestion button').disabled = true;
+        
+        question1Answered = true;
+        updateScore();
+        
+        alert("Answer submitted for Question 1!");
+    }
+
+    function validateQuestion2() {
+        const q2a1 = document.getElementById('q2a1');
+        const q2a2 = document.getElementById('q2a2');
+        
+        if (!q2a1.checked && !q2a2.checked) {
+            alert("Please select at least one answer for Question 2.");
+            return;
+        }
+        
+        if (q2a1.checked) {
+            totalScore += 25;
+        }
+        
+        if (q2a2.checked) {
+            totalScore += 25;
+        }
+        
+        document.getElementById('q2a1').disabled = true;
+        document.getElementById('q2a2').disabled = true;
+        document.querySelectorAll('.quizQuestion button')[1].disabled = true;
+        
+        question2Answered = true;
+        updateScore();
+        
+        alert("Answer submitted for Question 2!");
+    }
+
+    function updateScore() {
+        document.getElementById('score').textContent = totalScore;
+        document.getElementById('scoreDisplay').style.display = 'block';
+    }
+
+    function finishQuiz() {
+        if (!question1Answered || !question2Answered) {
+            alert("Please answer all questions before finishing the quiz.");
+            return;
+        }
+        
+        clearInterval(timerInterval);
+        
+        alert(`Quiz completed! Your final score is ${totalScore}/100.`);
+        
+        window.location.href = "leaderboard.html";
+    }
+</script>
