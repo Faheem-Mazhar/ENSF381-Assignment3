@@ -401,3 +401,9 @@ footer{
     font-weight: bold;
     font-size: 1.5em;
 }
+
+/* Hover effect for course tiles (Assignment 3)*/
+.course-tile:hover,
+.pending-tile:hover {
+    background-color: #ffffff;
+}
