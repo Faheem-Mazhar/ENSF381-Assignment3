@@ -81,5 +81,52 @@
             <p>&copy; 2025 LMS. All rights reserved.</p>
         </footer>
     </div>
+
+    <script>
+        window.onload = function () {
+        const pendingContainer = document.getElementsByClassName("pending-container")[0];
+        const enrolledContainer = document.getElementsByClassName("course-container")[0];
+
+        function handleButtonClick(event) {
+            const button = event.target;
+            const pendingTile = button.parentNode;
+
+            if (button.className === "accept-btn") {
+                moveCourseToEnrolled(pendingTile);
+            } else if (button.className === "decline-btn") {
+                removeCourse(pendingTile);
+            }
+        }
+
+        function moveCourseToEnrolled(pendingTile) {
+            const courseDetails = pendingTile.getElementsByTagName("p");
+            const courseName = courseDetails[0].textContent;
+            const courseCode = courseDetails[1].textContent;
+
+            const courseImageSrc = "../public/images/course1.jpg";
+
+            const enrolledTile = document.createElement("div");
+            enrolledTile.className = "course-tile";
+
+            enrolledTile.innerHTML = `
+                <img src="${courseImageSrc}" alt="${courseName}">
+                <p>${courseName}</p>
+                <p>${courseCode}</p>
+                <a href="attempt_quiz.html">Attempt Quiz</a>
+            `;
+
+            enrolledContainer.appendChild(enrolledTile);
+
+            pendingTile.parentNode.removeChild(pendingTile);
+        }   
+
+        function removeCourse(pendingTile) {
+            pendingTile.parentNode.removeChild(pendingTile);
+        }
+
+        pendingContainer.addEventListener("click", handleButtonClick);
+    };
+    </script>
+        
 </body>
 </html>
